@@ -3,7 +3,7 @@ name: CI/CD for Laravel
 on:
   push:
     branches:
-      - master
+      - maintener
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Build Docker Image
-      run: docker build -t my-laravel-app .
+      run: docker-compose build -t my-laravel-app .
 
     - name: Run Tests
       run: docker run my-laravel-app vendor/bin/phpunit
